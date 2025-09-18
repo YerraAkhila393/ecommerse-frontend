@@ -41,7 +41,7 @@ const AddProducts = () => {
       setProductName('');
       setPrice('');
       setImage('');
-      setActiveComponent('home'); // Navigate to Home only on success
+      setActiveComponent('products'); // Navigate to Products only on success
     } catch (err) {
       console.error('Error adding product:', {
         message: err.message,

@@ -47,7 +47,7 @@ const Login = () => {
       const { token, firstName, lastName } = response.data;
       localStorage.setItem('token', token);
       localStorage.setItem('user', JSON.stringify({ firstName, lastName }));
-      setActiveComponent("home"); // Close modal or reset component
+      setActiveComponent("login"); // Close modal or reset component
     } catch (err) {
       setError(err.response?.data?.message || 'Sign-up failed');
     } finally {

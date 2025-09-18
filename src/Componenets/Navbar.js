@@ -9,13 +9,19 @@ import Cart from "./Cart";
 const Navbar = () => {
     const {activeComponent, setActiveComponent} = useAppContext();
     const {cart, setCart} = useAppContext();
+    const [username, setUsername] = useState("");
+    const {user, setUser} = useAppContext();
     console.log(activeComponent)
+    getUser=()=>{
+      
+    }
+
   return (
    <div>
           <nav className="bg-gray-800 p-4 shadow-md">
             <div className="container mx-auto flex justify-between items-center">
               <div className="text-white text-2xl font-bold">
-                <a href="/">E-Shop</a>
+                <a href="/">Our Shop</a>
               </div>
               <div className="space-x-4">
                 <button
@@ -37,11 +43,31 @@ const Navbar = () => {
                 >
                   Add New Product
                 </button>
+                {username ? (
+              <div className="flex items-center space-x-2">
+                <span className="text-gray-300 px-3 py-2 text-sm font-medium">
+                  Hello, {username}
+                </span>
+                <button
+                  className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  onClick={logout}
+                >
+                  Logout
+                </button>
+              </div>
+              ) : (
+              <button
+                className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                onClick={() => setActiveComponent('login')}
+              >
+                Login / Sign Up
+              </button>
+            )}
                 <button
                   className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   onClick={() => setActiveComponent('login')}
                 >
-                  Login
+                  LogOut
                 </button>
                 <button
               className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium relative"
